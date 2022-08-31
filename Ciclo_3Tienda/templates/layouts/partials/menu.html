@@ -1,0 +1,9 @@
+{% load static %}
+<nav>
+    <img src="{% static 'img/logo.png.png'%}" width="250" height="150"/>
+    <ul>
+        <li><a href=" {% url 'index'%}">Inicio</a></li>
+        <li><a href=" {% url 'productos'%}">Productos</a></li>
+        <li><a href=" {% url 'contactenos'%}">Contáctenos</a></li>
+    </ul>
+</nav>
