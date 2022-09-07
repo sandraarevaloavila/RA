@@ -1,5 +1,26 @@
 {% extends 'layouts/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-    <h1>Aqui vamos a colocar un formulario para contactarnos e información de contacto</h1>
+    <div style="display: flex; justify-content: center; margin: 50px;">
+        <form method="POST">
+            {% csrf_token %}
+
+                  <div class="col-lg-12" >
+                    <div class="card text-center border-success" style="width: 100%; margin:20px" >
+                        <h5 class="card-header"><b>CONTÁCTENOS</b></h5>
+                        <div class="card-body">
+                            <p class="card-text"><b>{{contactenos.nombre|as_crispy_field}}</b></p>
+                            <p class="card-text"><b>{{contactenos.correo|as_crispy_field}}</b></p>
+                            <p class="card-text"><b>{{contactenos.tipo_consulta|as_crispy_field}}</b></p>
+                            <p class="card-text"><b>{{contactenos.mensaje|as_crispy_field}}</b></p>
+                            <p class="card-text"><button type="submit" class="btn btn-primary" >Enviar</button></p>
+                        </div>
+                    </div>
+                  </div>
+
+
+        </form>
+
+    </div>
 {% endblock %}

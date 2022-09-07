@@ -1,5 +1,27 @@
 {% extends 'layouts/base.html' %}
+{% load static %}
 
 {% block content %}
-    <h1>Aqui vamos a colocar nuestros productos</h1>
+        <h1>Nuestros productos:</h1>
+        <div style="display: flex; justify-content: center;">
+            <div class="col-10">
+                <div class="row">
+                    {% for producto in productos %}
+                    <div class="col-lg-3" >
+                        <div class="card text-right" style="width: 100%; margin:20px;" >
+                            {% if producto.imagen %}
+                            <img src="{{producto.imagen.url}}" style="width:100%; height: 200px;" class="card-img-top" alt="{{producto.nombre}}"/>
+                            {% endif %}
+                            <h5 class="card-header"><b>{{producto.nombre}}</b></h5>
+                            <div class="card-body">
+                                <p class="card-text"><b>Precio </b>${{producto.precio}}</p>
+                                <p class="card-text"><b>Descripción </b>{{producto.descripción}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
 {% endblock %}

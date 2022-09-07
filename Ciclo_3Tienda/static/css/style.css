@@ -1,9 +1,10 @@
 :root{
    --color-primary: #5792A4;
    --color-secondary: #92D14F;
+   --color-three: #FFFFFF;
    --color-title: #DD99E9;
    --color-text: #011F39;
-   --color-bg: #FFFFFF;
+   --color-bg: #41B2BC;
 }
 
 * {
@@ -21,7 +22,7 @@ nav{
   background-color: var(--color-primary);
 }
 nav img{
-  margin: 5px;
+  margin: 4px;
 }
 nav ul{
   list-style: none;
@@ -32,17 +33,18 @@ nav ul{
 nav ul li{
   padding: 20px;
 }
+
 nav ul li a{
   text-decoration: none;
-  color: var(--color-text);
-  font-size: 50px;
-  font-weight: 700;
+  color: var(--color-three);
+  font-size: 30px;
+  font-weight: 500;
 }
 nav ul li a:hover{
-  color: white;
+  color: black;
 }
 main{
-  background-color: var(--color-secondary)
+  background-color: var(--color- bg)
 }
 
 footer{
