@@ -1,0 +1,45 @@
+<div>
+    <table class="table table-bordered" >
+    <thead>
+        <tr>
+            <th scope="row" colspan='3' class='text-center'>Orden de compra</th>
+        </tr>
+        <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Suma</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% if request.session.orden.items %}
+        {% for key, value in request.session.orden.items %}
+        <tr>
+            <td>{{value.nombre}}</td>
+            <td>{{value.precio}}</td>
+            <td>
+                <a href="{% url 'agregar_producto' value.producto_id %}" class="badge btn btn-dark badge-dark">+</a>
+                {{value.cantidad}}
+                <a href="{% url 'restar_producto' value.producto_id %}" class="badge btn btn-dark badge-dark">-</a>
+                <a href="{% url 'eliminar_producto' value.producto_id %}" class="btn btn-outline-primary" ><i class="bi bi-trash3-fill "></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">
+                <div class="alert alert-danger text-center">sin productos </div>
+            </td>
+        </tr>
+    {% endif %}
+                <tr>
+                    <th scope="row" colspan="3" class="text-center" >total: $ {{total_orden}}</th>
+                </tr>
+    </tbody>
+</table>
+<hr>
+<div class="row text-center">
+    <div class="col-6"><a href="{% url 'limpiar_orden' %}" class="btn btn-secondary">Limpiar Orden</a></div>
+    <div class="col-6"><a href="{% url 'procesar_pedido' %}" class="btn btn-primary">Realizar Orden</a></div>
+</div>
+
+</div>

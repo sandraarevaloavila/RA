@@ -1,0 +1,62 @@
+{% extends 'layouts/base.html' %}
+{% block title %}
+Comprobación
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Comprobación</h1>
+    <div class="order-info">
+        <h3 class="text-center">Tu orden</h3>
+        <ul>
+            {% for key, value in request.session.orden.items %}
+            <li>
+                {{ value.cantidad }}x {{ value.nombre }}
+                <span>${{ value.precio }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+        <h4>Total: $ {{total_orden}}</h4>
+    </div>
+
+    <div style="display: flex; justify-content: center; margin: 50px;">
+
+            <form action="{% url 'procesar_pedido' %}"  method="POST">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <label for="usuario">Usuario</label>
+                      <input type="text" readonly class="form-control" id="usuario" name="usuario" value="{{user.username}}">
+                  </div>
+                <div class="form-group row">
+                    <label for="direccion">Dirección</label>
+                        <input type="text" class="form-control form-control-lg" id="direccion" name="direccion"  placeholder="Inserte su dirección">
+                </div>
+
+                <div class="form-group row">
+                    <label for="lugar">Lugar</label>
+                        <select id="lugar" class="form-control form-control-lg" name="lugar" placeholder="Selecciona tu ciudad">
+                            <option label="Bogota">0</option>
+                            <option label="Mosquera">1</option>
+                            <option label="Tena">2</option>
+                            <option label="La Gran Vía">3</option>
+                            <option label="La Mesa">4</option>
+                            <option label="San Javier">5</option>
+                        </select>
+                </div>
+
+                <div class="form-group row">
+                    <label for="telefono">Teléfono</label>
+                        <input type="text" class="form-control form-control-lg" id="telefono" name="telefono"  placeholder="Inserte su teléfono">
+                </div>
+                <div class="form-group row">
+                    <label for="to">Total orden</label>
+                        <input type="text" class="form-control form-control-lg" id="to" name="total"  value="{{total_orden}}" readonly>
+                </div>
+                <p></p>
+                <p><input class="btn btn-primary btn-sm btn-block" type="submit" value="Realizar orden"></p>
+
+            </form>
+
+    </div>
+
+</div>
+{% endblock %}

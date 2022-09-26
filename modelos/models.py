@@ -1,20 +1,6 @@
 from django.db import models
 from datetime import date
 
-
-class Usuario(models.Model):
-    usuario = models.CharField(max_length=50, blank=False, null=False, primary_key=True)
-    contraseña = models.CharField(max_length=30, blank=False, null=False,)
-    nombres = models.CharField(max_length=50, blank=False, null=False)
-    apellidos = models.CharField(max_length=50, blank=False, null=False)
-    email = models.EmailField(max_length=100, blank=False, null=False)
-    dirección = models.CharField(max_length=100, blank=False, null=False)
-    lugar = models.CharField(max_length=50, blank=False, null=False)
-    teléfono = models.CharField(max_length=10, blank=False, null=False)
-
-    def __str__(self):
-        return self.usuario
-
 class Producto(models.Model):
     nombre = models.CharField(max_length=50, blank=False, null=False)
     descripción = models.TextField(max_length=500, blank=False, null=False)
@@ -26,7 +12,6 @@ class Producto(models.Model):
 class Orden(models.Model):
     producto_id = models.ForeignKey(Producto, on_delete=models.CASCADE)
     fecha = models.DateField(default=date.today)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.fecha

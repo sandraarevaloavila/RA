@@ -4,7 +4,24 @@
 {% block content %}
         <h1>Nuestros productos:</h1>
         <div style="display: flex; justify-content: center;">
-            <div class="col-10">
+            <div class="col-12">
+                {% if user.is_authenticated %}
+                <div style="float:right; margin:30px;">
+                    {% include 'Orden.html' %}
+                </div>
+                    {% else %}
+                        <div style="float:right; margin:30px;">
+                            <div>
+                                <table class="table table-bordered" >
+                                    <thead>
+                                        <tr>
+                                            <th scope="row" colspan='3' class='text-center bg-primary border-primary text-white'>Debe iniciar sesion</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                {% endif %}
                 <div class="row">
                     {% for producto in productos %}
                     <div class="col-lg-3" >
@@ -16,6 +33,7 @@
                             <div class="card-body">
                                 <p class="card-text"><b>Precio </b>${{producto.precio}}</p>
                                 <p class="card-text"><b>Descripción </b>{{producto.descripción}}</p>
+                                <p class="card-text"><a href="{% url 'agregar_producto' producto.id %}" class="btn btn-primary " style="margin:20px;" >Agregar a la orden</a></p>
                             </div>
                         </div>
                     </div>

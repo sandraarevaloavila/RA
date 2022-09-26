@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div style="display: flex; justify-content: center; margin: 50px;">
+            <div class="card text-center border-primary" style="width: 25%; margin:20px;" >
+                <h5 class="card-header text-white bg-primary"><b>Bienvenid@</b></h5>
+                <form method="POST">
+                    {% csrf_token %}
+                     <div class="card-body">
+                                <p class="card-text"><b>Usuario </b></p>
+                                <p class="card-text">{{form.username}}</p>
+                                <p class="card-text"><b>Contraseña </b></p>
+                                <p class="card-text">{{form.password}}</p>
+
+                            </div>
+
+
+                    <div style="margin-top:15px;">
+                    <button type="submit" class="btn btn-primary " style="margin:20px;" >Iniciar sesión</button>
+                    </div>
+                </form>
+            </div>
+    </div>
+{% endblock %}

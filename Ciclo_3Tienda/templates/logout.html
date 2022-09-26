@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div style="display: flex; justify-content: center; margin: 50px;">
+            <div class="card text-center border-primary" style="width: 25%; margin:20px;" >
+                <h5 class="card-header bg-primary"><b>Has cerrado sesión</b></h5>
+                <div class="card-body">
+                    <p class="card-text"><b>Gracias por tu compra, disfruta nuestros productos, te esperamos pronto. </b>{{form}}</p>
+                </div>
+
+            </div>
+    </div>
+{% endblock %}

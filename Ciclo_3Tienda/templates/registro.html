@@ -1,45 +1,36 @@
 {% extends 'layouts/base.html' %}
-{% load crispy_forms_tags %}
+
 
 {% block content %}
-
     <div style="display: flex; justify-content: center; margin: 50px;">
+            <div class="card text-center border-primary" style="width: 25%; margin:20px;" >
+                <h5 class="card-header text-white bg-primary"><b>Formulario de Registro</b></h5>
                 <form method="POST">
                     {% csrf_token %}
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                             {{form.usuario|as_crispy_field}}
-                        </div>
-                        <div class="form-group col-md-6">
-                            {{form.contraseña|as_crispy_field}}
-                        </div>
+                     <div class="card-body">
+                                <p class="card-text"><b>Nombres </b></p>
+                                 <p class="card-text">{{form.first_name}}</p></p>
+                                 <p class="card-text"><b>Apellidos </b>
+                                 <p class="card-text">{{form.last_name}}</p></p>
+                                 <p class="card-text"><b>Usuario </b>
+                                 <p class="card-text">{{form.username}}</p></p>
+                                 <p class="card-text"><b>Email </b>
+                                 <p class="card-text">{{form.email}}</p></p>
+                                 <p class="card-text"><b>Contraseña </b></p>
+                                 <p class="card-text">{{form.password1}}</p>
+                                <p class="card-text"><b>Repetir Contraseña </b></p>
+                                <p class="card-text">{{form.password2}}</p>
+                     </div>
+
+
+                    <div style="margin-top:15px;">
+                    <button type="submit" class="btn btn-primary " style="margin:20px;" >Registrarse</button>
                     </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    {{form.nombres|as_crispy_field}}
-                </div>
-                <div class="form-group col-md-6">
-                    {{form.apellidos|as_crispy_field}}
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    {{form.email|as_crispy_field}}
-                </div>
-                <div class="form-group col-md-6">
-                    {{form.dirección|as_crispy_field}}
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    {{form.lugar|as_crispy_field}}
-                </div>
-                <div class="form-group col-md-6">
-                    {{form.teléfono|as_crispy_field}}
-                </div>
-            </div>
-                <button type="submit" class="btn btn-primary">Registrarse</button>
                 </form>
+            </div>
     </div>
+
+
+
 
 {% endblock %}
