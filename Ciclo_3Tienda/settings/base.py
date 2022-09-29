@@ -48,7 +48,7 @@ ROOT_URLCONF = 'Ciclo_3Tienda.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'C:\Users\Nidia\PycharmProjects\Ciclo_3Tienda\Ciclo_3Tienda\templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
