@@ -7,10 +7,10 @@ ALLOWED_HOSTS = ['ecommercerelucienteaseo.herokuapp.com']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'davsgd4n5s2bb6',
-        'USER': 'gmoepcqkrcwzkr',
-        'PASSWORD': 'a3866098a04bdbe74706d368f5e40e4266aeb3c5f46c209c6cfba3eb9f7bb180',
-        'HOST': 'ec2-52-200-5-135.compute-1.amazonaws.com',
+        'NAME': 'dac7fdnuj6uftu',
+        'USER': 'knxyomphnrslwo',
+        'PASSWORD': '7a4a7006b4bd51336cb04361cafaebe9a3654d5ae7a71c2e43ea9ea3cb6879ce',
+        'HOST': 'ec2-34-200-205-45.compute-1.amazonaws.com',
         'PORT': 5432,
     }
 }
