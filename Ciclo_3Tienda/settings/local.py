@@ -14,3 +14,7 @@ DATABASES = {
         'PORT': '3306'
     }
 }
+STATICFILES_DIRS = [
+
+    BASE_DIR / r"C:\Users\Nidia\PycharmProjects\Ciclo_3Tienda\Ciclo_3Tienda\static",
+]
